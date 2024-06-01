@@ -1,0 +1,70 @@
+#:include speciallabel.kv
+#:include qr_window.kv
+#:include input_dialog.kv
+
+WindowManager:
+    current_event: ''
+    grid_events: 
+    EventWindow:
+
+<EventWindow>
+    name: 'eventwindow'
+    canvas:
+        Color:
+            rgba: (1, 1, 1, 1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    BoxLayout:
+        id: box_layout
+        orientation: 'vertical'
+        
+        MDToolbar:
+            title: 'QRegister'
+            specific_text_color: 0,0,0,1
+            right_action_items:
+            md_bg_color: 162/255, 252/255, 207/255, 1
+            right_action_items: [['plus', lambda x: app.create_event_dialog()]]
+
+        MDLabel:
+            text: 'Events'
+            font_style: 'H3'
+            size_hint: (1, .2)
+            halign: 'center'
+
+        EventScrollView:
+            id: scroll_event
+            do_scroll_x: False
+            do_scroll_y: True
+            
+            
+            EventGridLayout:
+                id: grid_lay
+                size:(root.width, root.height)
+                size_hint_x: None
+                size_hint_y: None
+                cols: 1
+                padding: 10
+                spacing: 10
+                scroll_distance:30
+                height: self.minimum_height
+                row_default_height: (root.height*0.30)
+                row_force_default: True
+
+<Loading_layout>
+    orientation: "vertical"
+    spacing: "7dp"
+    size_hint_y: None
+    height: "300dp"
+    
+    MDLabel:
+        text: 'Please wait a second while the codes are created'
+
+    Image:
+        source: 'loading2.gif'
+        size: 200,200
+
+
+
+        

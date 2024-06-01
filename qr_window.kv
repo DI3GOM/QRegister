@@ -1,0 +1,48 @@
+<Qr_window>:
+    name: 'qr_window'
+    event_name: ''
+    canvas:
+        Color:
+            rgba: (1, 1, 1, 1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    
+    BoxLayout:
+        orientation: 'vertical'
+
+        MDToolbar:
+            title: root.event_name
+            specific_text_color: 0,0,0,1
+            anchor_title: 'right'
+            left_action_items: [['keyboard-backspace', lambda x: app.back(x)]]
+            md_bg_color: 162/255, 252/255, 207/255, 1
+
+        GridLayout:
+            padding: 10
+            spacing: 10
+            cols: 1
+
+
+            Qr_button:
+                text: 'Scan Code'
+                icon: 'account-box'
+                pos_hint: {"center_x": .5, "center_y": .5}
+                text_color: 0, 0, 0, 1
+                icon_color: 0, 0, 0, 1
+                line_color: 0, 0, 0, 1
+                
+            
+            MDLabel:
+                size_hint: (1, .2)
+                text: 'Codes Scanned'
+                font_style: 'H6'
+                theme_text_color: 'Custom'
+                text_color:0, 0/255, 0/255, 1
+
+            ScrollView:
+                Cheked_people:
+                    
+
+
+

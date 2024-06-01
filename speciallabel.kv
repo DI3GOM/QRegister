@@ -1,0 +1,65 @@
+<SpecialLabel>:
+    event_name: ''
+    event_date: ''
+    date_passed: 0
+    date_passed_text: ''
+    canvas: 
+        Color:
+            rgba: 61/255, 255/255, 158/255, 1
+        Rectangle:
+            size: self.size
+            pos:self.pos
+    
+
+    BoxLayout:
+        canvas: 
+            Color:
+                rgba: (1, 1, 1, 1)
+            Rectangle:
+                size: (self.width - 10, self.height - 10)
+                pos:(root.x +5, root.y + 5)
+        orientation: 'horizontal'
+        height: self.parent.height  
+        width: self.parent.width                
+        pos: self.parent.pos 
+        spacing: 5
+        padding: 20
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_x: 4
+            MDLabel:
+                text: root.event_name
+                font_style: 'H4'
+                theme_text_color: 'Custom'
+                text_color: 11/255, 107/255, 59/255, 1
+                halign: 'center'
+
+            MDLabel:
+                text: root.event_date
+                font_style: 'H6'
+                halign: 'center'
+                theme_text_color: 'Custom'
+                text_color: root.date_passed, 0/255, 0/255, 1
+        
+        MDRoundFlatIconButton:
+            icon:"magnify"
+            text:"Scan codes"
+            size_hint_x: 1.3
+            pos_hint: {"center_x": .5, "center_y": .5}
+            text_color: 0, 0, 0, 1
+            icon_color: 0, 0, 0, 1
+            line_color: 0, 0, 0, 1
+            on_release: root.search_on_release()
+
+        
+        MDRoundFlatIconButton:
+            icon:"delete"
+            text:"Delete event"
+            size_hint_x: 1.3
+            pos_hint: {"center_x": .5, "center_y": .5}
+            text_color: 1, 0, 0, 1
+            icon_color: 1, 0, 0, 1
+            line_color: 1, 0, 0, 1
+            on_release: root.erase_on_release()
+

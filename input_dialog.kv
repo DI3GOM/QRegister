@@ -1,0 +1,56 @@
+<InputBoxLayout>
+    orientation: "vertical"
+    spacing: "7dp"
+    size_hint_y: None
+    height: "300dp"
+
+    EventNameInput:
+        size_hint: (1, .2)
+        hint_text: "Event Name"
+        on_text: self.validate_input()
+        max_text_length: 15
+        helper_text: ""
+        helper_text_mode: "on_error"
+
+    EventDateInput:
+        size_hint: (1, .2)
+        hint_text: "Event Date"
+        required: True
+        on_text: self.validate_input()
+        helper_text: ""
+        helper_text_mode: "on_error"
+    
+    NamesDirectoryLayout:
+        size_hint: (1, .2)
+        orientation: 'vertical'
+        spacing: "3dp"
+
+        MDRectangleFlatButton:
+            text: 'Choose csv file for guests names'
+            text_color: 11/255, 107/255, 59/255, 1
+            line_color: 11/255, 107/255, 59/255, 1
+            on_press: self.parent.get_directory()
+        MDLabel:
+            text: ''
+            theme_text_color: 'Secondary'
+            font_size: '13dp'
+    
+    QRDirectoryLayout:
+        size_hint: (1, .2)
+        orientation: 'vertical'
+
+        MDRectangleFlatButton:
+            text: 'Choose folder for QR codes'
+            text_color: 11/255, 107/255, 59/255, 1
+            line_color: 11/255, 107/255, 59/255, 1
+            on_press: self.parent.get_directory()
+
+        MDLabel:
+            text: ''
+            theme_text_color: 'Secondary'
+            font_size: '13dp'
+    
+    MDLabel:
+        size_hint: (1, .2)
+        text:""
+        theme_text_color: 'Error'
